@@ -1,10 +1,21 @@
 function NavBar(props) {
+    const { pokemonList, next } = props;
+
     return (
         <>
-            {props.pokemonIndex < props.pokemonList.length - 1 ? <button onClick={props.next}>suivant</button> : ""}
-            {props.pokemonIndex > 0 ? <button onClick={props.previous}>précédent</button> : ""}
+
+
+            {pokemonList.map((elem, index) => (
+                <button key={index} onClick={next} id={`img_${index}`} >{elem.name}</button>
+            ))}
+
+
+
+
         </>
+
     )
+    
 }
 export default NavBar;
 

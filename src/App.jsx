@@ -6,6 +6,7 @@ function App() {
 
 
   const [pokemonIndex, setPokemon] = useState(0);
+  console.log(pokemonIndex);
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -29,18 +30,17 @@ function App() {
     },
     {
       name: "mew",
+      imgSrc: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png"
     }
   ];
-  const next = () => {
-    setPokemon(pokemonIndex + 1);
+  const next = (event) => {
+    setPokemon(event.target.id.split('_')[1]);
   }
-  const previous = () => {
-    setPokemon(pokemonIndex - 1);
-  }
+
   return (
 
     <div>
-      <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} next={next} previous={previous} />
+      <NavBar pokemonList={pokemonList} next={next} />
       <PokemonCard name={pokemonList[pokemonIndex].name} imgSrc={pokemonList[pokemonIndex].imgSrc} />
 
     </div>
