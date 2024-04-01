@@ -2,11 +2,15 @@ import { useState } from 'react'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import NavBar from './components/navBar'
+import { useEffect } from 'react'
+
 function App() {
 
+  useEffect(() => {
+    alert('hello pokemon trainer :)')
+  });
 
   const [pokemonIndex, setPokemon] = useState(0);
-  console.log(pokemonIndex);
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -34,8 +38,10 @@ function App() {
     }
   ];
   const next = (event) => {
+    event.target.id.split('_')[1] ==  3  ? alert('pika pikachu !!!') : alert('hello pokemon trainer :)');
     setPokemon(event.target.id.split('_')[1]);
   }
+
 
   return (
 
